@@ -10,9 +10,10 @@
     ],
     "plugins": ["prettier"],
     "parserOptions": {
-        "ecmaVersion": 13
+        "ecmaVersion": 12
     },
     "rules": {
+      "quotes": [2, "single", { "avoidEscape": true }],
       "prettier/prettier": [
         "error",
         {
