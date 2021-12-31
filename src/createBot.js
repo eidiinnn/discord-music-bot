@@ -20,6 +20,18 @@ export default class CreateBot {
     });
   }
 
+  CommandsInteraction(interactionsActionsAndReply) {
+    return new Promise((resolve, reject) => {
+      this.bot
+        .on('interactionCreate', async (interaction) => {
+          if (!interaction.isCommand()) return;
+          interactionsActionsAndReply(interaction);
+        })
+        .then(resolve(true))
+        .catch((errorReturn) => reject(errorReturn));
+    });
+  }
+
   registerCommandsInGuild(guildId, commands) {
     return new Promise((resolve, reject) => {
       this.rest
