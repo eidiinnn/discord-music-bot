@@ -1,4 +1,4 @@
-import CreateBot from '../../src/createBot';
+import CreateBot from '../../src/bot/createBot';
 
 const bot = new CreateBot(process.env.BOT_API_TOKEN, process.env.CLIENT_ID);
 require('dotenv').config();

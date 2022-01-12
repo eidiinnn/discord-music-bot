@@ -1,18 +1,12 @@
-import CreateBot from '../../src/createBot';
+import CreateBot from '../../src/bot/createBot';
 
 require('dotenv').config();
 
 const bot = new CreateBot(process.env.BOT_API_TOKEN, process.env.CLIENT_ID);
-const commands = [
-  {
-    name: 'ping',
-    description: 'Replies with Pong!',
-  },
-];
 
 test('registerCommandsInGuild works', () =>
   bot
-    .registerCommandsInGuild(process.env.GUILD_ID, commands)
+    .registerCommandsInGuild(process.env.GUILD_ID)
     .then((returnedBoolean) => {
       expect(returnedBoolean).toBe(true);
     })
@@ -22,7 +16,7 @@ test('registerCommandsInGuild works', () =>
 
 test('registerCommandsInGuild detects an error', () =>
   bot
-    .registerCommandsInGuild(process.env.GUILD_ID, 'wrong-commands')
+    .registerCommandsInGuild(process.env.GUILD_ID)
     .then()
     .catch((error) => {
       expect(() => {
