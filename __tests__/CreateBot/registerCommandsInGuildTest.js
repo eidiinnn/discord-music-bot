@@ -1,4 +1,4 @@
-import CreateBot from '../../src/createBot';
+import CreateBot from '../../src/bot/createBot';
 
 require('dotenv').config();
 
