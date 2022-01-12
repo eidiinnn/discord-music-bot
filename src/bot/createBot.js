@@ -1,6 +1,7 @@
 import { Client, Intents } from 'discord.js';
 import { Routes } from 'discord-api-types/v9';
 import { REST } from '@discordjs/rest';
+import commandsToDeploy from '../../commandsToRegister.json';
 
 export default class CreateBot {
   constructor(token, clientId) {
@@ -32,11 +33,11 @@ export default class CreateBot {
     });
   }
 
-  registerCommandsInGuild(guildId, commands) {
+  registerCommandsInGuild(guildId) {
     return new Promise((resolve, reject) => {
       this.rest
         .put(Routes.applicationGuildCommands(this.clientId, guildId), {
-          body: commands,
+          body: commandsToDeploy,
         })
         .then(() => resolve(true))
         .catch((errorReturn) => reject(errorReturn));

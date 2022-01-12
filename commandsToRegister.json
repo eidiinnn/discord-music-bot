@@ -1,0 +1,4 @@
+[
+    {"name":  "play", "description": "play a music"},
+    {"name":  "stop", "description": "stop the music"}
+]
