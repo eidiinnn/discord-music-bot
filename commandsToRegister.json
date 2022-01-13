@@ -1,4 +1,15 @@
 [
-    {"name":  "play", "description": "play a music"},
-    {"name":  "stop", "description": "stop the music"}
+  {
+    "name": "play",
+    "description": "play a music",
+    "options": [
+      {
+        "name": "name",
+        "type": 3,
+        "description": "The song you want to play",
+        "required": true
+      }
+    ]
+  },
+  { "name": "stop", "description": "stop the music" }
 ]
