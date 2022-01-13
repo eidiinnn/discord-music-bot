@@ -6,7 +6,13 @@ import musicPlayerInteraction from './tools/music/musicPlayerInteraction';
 
 export default class CreateBot {
   constructor(token, clientId) {
-    this.bot = new Client({ intents: [Intents.FLAGS.GUILDS] });
+    this.bot = new Client({
+      intents: [
+        Intents.FLAGS.GUILDS,
+        Intents.FLAGS.GUILD_MESSAGES,
+        Intents.FLAGS.GUILD_VOICE_STATES,
+      ],
+    });
     this.botApiToken = token;
 
     this.rest = new REST({ version: '9' }).setToken(this.botApiToken);
