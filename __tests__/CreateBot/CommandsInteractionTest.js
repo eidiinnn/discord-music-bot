@@ -5,11 +5,7 @@ require('dotenv').config();
 
 test('CommandsInteraction works', () =>
   bot
-    .CommandsInteraction(async (interaction) => {
-      if (interaction.commandName === 'ping') {
-        await interaction.reply('Pong!');
-      }
-    })
+    .CommandsInteraction()
     .then((returnedBoolean) => {
       expect(returnedBoolean).toBe(true);
     })
