@@ -1,6 +1,5 @@
 import verifyAfterToPlay from './tools/verifyAfterToPlay';
 import play from './commands/play';
-import stop from './commands/stop';
 
 const { Client, Intents } = require('discord.js');
 const { Player } = require('discord-player');
