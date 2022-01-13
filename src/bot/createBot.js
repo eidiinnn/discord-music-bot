@@ -2,6 +2,7 @@ import { Client, Intents } from 'discord.js';
 import { Routes } from 'discord-api-types/v9';
 import { REST } from '@discordjs/rest';
 import commandsToDeploy from '../../commandsToRegister.json';
+import musicPlayerInteraction from './tools/music/musicPlayerInteraction';
 
 export default class CreateBot {
   constructor(token, clientId) {
@@ -21,12 +22,12 @@ export default class CreateBot {
     });
   }
 
-  CommandsInteraction(interactionsActionsAndReply) {
+  CommandsInteraction() {
     return new Promise((resolve, reject) => {
       this.bot
         .on('interactionCreate', async (interaction) => {
           if (!interaction.isCommand()) return;
-          interactionsActionsAndReply(interaction);
+          musicPlayerInteraction(interaction);
         })
         .then(resolve(true))
         .catch((errorReturn) => reject(errorReturn));
